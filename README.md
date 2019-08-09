@@ -2,7 +2,7 @@
 
 ## Demo Site → [YouTube Videos](#)
 
-
+React App, that utilizes the YouTube API. Takes user requests, and renders component onscreen.
 
 
 ## App Challenges
