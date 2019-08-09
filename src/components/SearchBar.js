@@ -1,8 +1,27 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
+  state = { term: '324234' };
+
+  onInputChange = () => {
+    
+  };
+  
   render() {
-    return <div>SearchBar</div>;
+    return (
+      <div className="search-bar ui segment">
+        <form className="ui form">
+          <div className="field">
+            <label>Video Search</label>
+            <input 
+              type="text"  
+              value={ this.state.term }       // current state of our value
+              onChange={ this.onInputChange } // Add callback function to accept change
+              />
+          </div>
+        </form>
+      </div>
+    );
   }
 }
 
