@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../api/youtube';
+import VideoList from './VideoList';
 
 class App extends React.Component {
   // create a state with empty array to hold our list of data when fetch is called
@@ -15,7 +16,7 @@ class App extends React.Component {
         q: term
       }
     });
-
+    // Update our props to pass in the data being fetched
     this.setState({ videos: response.data.items });
   }
   
@@ -24,7 +25,8 @@ class App extends React.Component {
       <div className="ui container">
         {/* Calls the method to fetch API data */}
         <SearchBar onFormSubmit={ this.onTermSubmit } />
-        I have { this.state.videos.length } videos.
+        {/* Pass in a prop for our video data that was fetched */}
+        <VideoList videos={ this.state.videos } />
       </div>
     )
   }
