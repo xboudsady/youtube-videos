@@ -1,0 +1,9 @@
+.video-item {
+  display: flex !important;           /* Enable flexbox */
+  align-items: center !important;     /* Align text to center of element */
+  cursor: pointer;
+}
+
+.video-item.item img {
+  max-width: 180px;       /* So image doesn't appear too large. */
+}
