@@ -1,6 +1,6 @@
 # Pics
 
-## Demo Site → [YouTube Videos](#)
+## Demo Site → [YouTube Videos](http://xboudsady-react-youtube.s3-website-us-west-1.amazonaws.com)
 
 React App, that utilizes the YouTube API. Takes user requests, and renders component onscreen. This app will utilize 5 component buildout.
 * `<App />` handles user input.
@@ -35,4 +35,9 @@ React App, that utilizes the YouTube API. Takes user requests, and renders compo
 
 ## App Screen Shot
 
-![App Screenshot](#)
+![App Screenshot](https://github.com/xboudsady/youtube-videos/blob/master/src/asset/app-screen.png)
+
+## Design Wireframe
+![App Structure](https://github.com/xboudsady/youtube-videos/blob/master/src/asset/app-structure.png)
+
+![Compoment Structure](https://github.com/xboudsady/youtube-videos/blob/master/src/asset/app-structure.png)
