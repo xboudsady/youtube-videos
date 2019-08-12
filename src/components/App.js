@@ -34,11 +34,19 @@ class App extends React.Component {
       <div className="ui container">
         {/* Calls the method to fetch API data */}
         <SearchBar onFormSubmit={ this.onTermSubmit } />
-        <VideoDetail video={ this.state.selectedVideo } />
-        <VideoList 
-            onVideoSelect={ this.onVideoSelect }  // Pass as prop to update state to our selected video
-            videos={ this.state.videos }          // Pass in a prop for our video data that was fetched
-          />
+        <div className="ui grid">
+          <div className="ui row">
+            <div className="eleven wide column">
+              <VideoDetail video={ this.state.selectedVideo } />
+            </div>
+            <div className="five wide column">
+            <VideoList 
+                onVideoSelect={ this.onVideoSelect }  // Pass as prop to update state to our selected video
+                videos={ this.state.videos }          // Pass in a prop for our video data that was fetched
+              />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
