@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../api/youtube';
 import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
 
 class App extends React.Component {
   // create a state with empty array to hold our list of data when fetch is called
@@ -24,7 +25,8 @@ class App extends React.Component {
   }
 
   onVideoSelect = (video) => {
-    console.log('From the App', video);
+    // Update the prop of selected video, when <VideoItem /> comonent is clicked
+    this.setState({ selectedVideo: video })
   };
   
   render() {
@@ -32,6 +34,7 @@ class App extends React.Component {
       <div className="ui container">
         {/* Calls the method to fetch API data */}
         <SearchBar onFormSubmit={ this.onTermSubmit } />
+        <VideoDetail video={ this.state.selectedVideo } />
         <VideoList 
             onVideoSelect={ this.onVideoSelect }  // Pass as prop to update state to our selected video
             videos={ this.state.videos }          // Pass in a prop for our video data that was fetched
