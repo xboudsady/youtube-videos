@@ -5,35 +5,36 @@ import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 
 class App extends React.Component {
-  // create a state with empty array to hold our list of data when fetch is called
-  state = { 
-    // Props to hold our array of day from onTermSubmit() on API fetch
-    videos: [],
-    // 2nd state to hold our selected video value via the on onVideoSelect()
-    selectedVideo: null
+  state = {                 // create a state with empty array to hold our list of data when fetch is called
+    videos: [],             // Props to hold our array of day from onTermSubmit() on API fetch
+    selectedVideo: null     // 2nd state to hold our selected video value via the on onVideoSelect()
+  }
+
+  componentDidMount() {                                 // Add default video list, when app load
+    this.onTermSubmit('amazing travel')
   }
   
-  // Submit input field, trigger YouTube API data fetch
-  onTermSubmit = async term => {
+  onTermSubmit = async term => {                        // Submit input field, trigger YouTube API data fetch
     const response = await youtube.get('/search', {
       params: {
         q: term
       }
     });
-    // Update our props to pass in the data being fetched
-    this.setState({ videos: response.data.items });
+    
+    this.setState({                           // Update our props to pass in the data being fetched
+      videos: response.data.items,
+      selectedVideo: response.data.items[0]   // When we do a new search, take the first video in result set, and use as default video
+    });
   }
 
   onVideoSelect = (video) => {
-    // Update the prop of selected video, when <VideoItem /> comonent is clicked
-    this.setState({ selectedVideo: video })
+    this.setState({ selectedVideo: video })   // Update the prop of selected video, when <VideoItem /> comonent is clicked
   };
   
   render() {
     return (
       <div className="ui container">
-        {/* Calls the method to fetch API data */}
-        <SearchBar onFormSubmit={ this.onTermSubmit } />
+        <SearchBar onFormSubmit={ this.onTermSubmit } />    {/* Calls the method to fetch API data */}
         <div className="ui grid">
           <div className="ui row">
             <div className="eleven wide column">
