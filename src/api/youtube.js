@@ -10,6 +10,9 @@ export default axios.create({
   // Header Object
   params: {
     part: 'snippet',
-    key: KEY
+    type: 'video',
+    maxResults: 5,
+    key: KEY,
+    safeSearch: 'strict'
   }
 });
